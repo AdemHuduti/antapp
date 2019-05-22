@@ -1,0 +1,30 @@
+.myNavbar {
+  background: #000;
+  /* height: 80px; */
+}
+
+.hamburger-icon {
+  color: #fff;
+}
+
+.inputStyle {
+  border-color: #1d2a5b;
+  margin: 0;
+  width: 142px !important;
+  height: 30px;
+}
+
+.myNavbar a {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #06101a;
+  border: none;
+}
+
+.top {
+  margin-top: 3px;
+}
