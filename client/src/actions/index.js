@@ -4,7 +4,7 @@ import { getErrors } from './errorActions';
 
 import { GET_WORKING_HOURS, CREATE_WORKING_HOURS, DELETE_WORKING_HOURS } from "./types";
 
-const API_BASE_URL = '/api/workinghours';
+const API_BASE_URL = '/api/workinghours/';
 
 export const fetchWorkingItems = () => dispatch => {
   axios.get(API_BASE_URL)

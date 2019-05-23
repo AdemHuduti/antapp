@@ -63,7 +63,7 @@ class Registraton extends Component {
           isAuthenticated ? 
           <div>
             <h3 className="text-center">Welcome, {user.name}</h3> 
-            <p>Click <Link to="/home">here</Link> to start asking questons</p>
+            <p>Click <Link to="/home">here</Link> start adding working hours</p>
           </div>
           :
           <div className="card">
