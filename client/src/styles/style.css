@@ -68,3 +68,9 @@
     margin-top: 12px;
   }
 }
+
+p {
+  font-size: .9rem;
+  margin-bottom: 0.55rem;
+  margin-top: 0.55rem;
+}

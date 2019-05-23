@@ -13,7 +13,6 @@ class NavBar extends Component {
           <span className="text-light mr-3">{user ? `Welcome, ${user.name}` : ''}</span>
         </span>
           <NavLink to="/home" className="text-light">Home page</NavLink>
-          <NavLink to="/profile" className="text-light">Profile</NavLink>
         <span>
           <Logout />
         </span>

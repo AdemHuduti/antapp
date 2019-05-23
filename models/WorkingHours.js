@@ -9,12 +9,16 @@ const WorkingHoursSchema = new Schema({
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   day: {
     type: String,
     required: true
   },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = WorkingHours = mongoose.model("workingHours", WorkingHoursSchema);
