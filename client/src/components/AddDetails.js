@@ -19,7 +19,7 @@ class AddDetails extends Component {
       day,
     }
 
-    this.props.createNewWorkingItem(newItem)
+    this.props.createNewWorkingItem(newItem);
 
   }
 

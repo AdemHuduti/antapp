@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { fetchWorkingItems, deleteWorkingItem } from '../actions/';
 import AddDetails from './AddDetails';
-import moment from 'moment';
+// import moment from 'moment';
 import "../styles/style.css"
 
 class Home extends Component {
@@ -14,28 +14,47 @@ class Home extends Component {
   componentDidMount() {
     this.props.fetchWorkingItems()
   }
-
-  deleteItem = (id) => {
-    this.props.deleteWorkingItem(id)
-  }
-
+  
   showWorkingHours = () => {
     const { workingHours } = this.props.workingHours;
     return workingHours.slice(0, this.state.visible).map((workingHour) =>
-      <div className="col-md-4" key={workingHour._id}>
-        <div className="text-center mb-3 border border-dark fade-in">
-          <h5 className="card-header">{workingHour.day}</h5>
-          <p>{workingHour.description}</p>
-          <p>{workingHour.hours}</p>
-          <p>{moment(workingHour.date).format('DD.MM.YYYY')}</p>
-          <div className="card-footer">
-            <button className="btn btn-outline-danger btn-sm"
-              onClick={this.deleteItem.bind(this, workingHour._id)}>
-              Delete
+      <table className="table table-bordered text-center fade-in" key={workingHour._id}>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Description</th>
+            <th>Hours</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{workingHour.day}</td>
+            <td className="col">{workingHour.description}</td>
+            <td>{workingHour.hours}</td>
+            <td>
+              <button className="btn btn-danger btn-sm"
+                onClick={() => this.props.deleteWorkingItem(workingHour._id) }>
+                Delete
             </button>
-          </div>
-        </div>
-      </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      // <div className="col-md-4" key={workingHour._id}>
+      //   <div className="text-center mb-3 border border-dark fade-in">
+      //     <h5 className="card-header">{workingHour.day}</h5>
+      //     <p>{workingHour.description}</p>
+      //     <p>{workingHour.hours}</p>
+      //     <p>{moment(workingHour.date).format('DD.MM.YYYY')}</p>
+      //     <div className="card-footer">
+      // <button className="btn btn-outline-danger btn-sm"
+      //   onClick={this.deleteItem.bind(this, workingHour._id)}>
+      //   Delete
+      // </button>
+      //     </div>
+      //   </div>
+      // </div>
     )
   }
 
@@ -46,7 +65,6 @@ class Home extends Component {
   render() {
     const { workingHours } = this.props.workingHours;
     const { isAuthenticated } = this.props.auth;
-    console.log(workingHours)
     return (
       <div >
         <NavBar />
@@ -55,7 +73,9 @@ class Home extends Component {
             <div className="container">
               <AddDetails />
               <div className="row">
-                {this.showWorkingHours()}
+                {
+                  workingHours.length ? this.showWorkingHours() : "No working hours"
+                }
               </div>
               {
                 this.state.visible < workingHours.length &&
@@ -63,7 +83,9 @@ class Home extends Component {
               }
             </div>
             :
-            <h4>Please login to access the working hours.</h4>
+            <div className="container mt-4">
+              <h4>Please login to access the working hours.</h4>
+            </div>
         }
       </div>
     )

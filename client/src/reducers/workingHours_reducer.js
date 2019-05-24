@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
     case DELETE_WORKING_HOURS:
       return {
         ...state,
-        workingHours: state.workingHours.filter(question => question._id !== action.payload)
+        workingHours: state.workingHours.filter(workingHour => workingHour._id !== action.payload)
       }
 
     default: return state
