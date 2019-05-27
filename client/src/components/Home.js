@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { fetchWorkingItems, deleteWorkingItem } from '../actions/';
 import AddDetails from './AddDetails';
-// import moment from 'moment';
 import "../styles/style.css"
 
 class Home extends Component {
@@ -41,20 +40,6 @@ class Home extends Component {
           </tr>
         </tbody>
       </table>
-      // <div className="col-md-4" key={workingHour._id}>
-      //   <div className="text-center mb-3 border border-dark fade-in">
-      //     <h5 className="card-header">{workingHour.day}</h5>
-      //     <p>{workingHour.description}</p>
-      //     <p>{workingHour.hours}</p>
-      //     <p>{moment(workingHour.date).format('DD.MM.YYYY')}</p>
-      //     <div className="card-footer">
-      // <button className="btn btn-outline-danger btn-sm"
-      //   onClick={this.deleteItem.bind(this, workingHour._id)}>
-      //   Delete
-      // </button>
-      //     </div>
-      //   </div>
-      // </div>
     )
   }
 
